@@ -6,6 +6,16 @@ const getParams = arr => {
   return results
 }
 
+const getOptions = (arr, filterProp = 'tema') => {
+  let results = []
+  for (let item of arr) {
+    results.push(item[filterProp])
+  }
+  results = new Set([...results])
+  results = [...results]
+  return results
+}
+
 const sortItems = (arr, filterProp = 'id', order = 'Asc') => {
   let results = []
   if (arr && arr !== undefined) {
@@ -69,6 +79,7 @@ const makeSearch = (arr, filterProp = 'id', order = 'Asc', filterValue = undefin
 
 const Helpers = {
   params: getParams,
+  options: getOptions,
   filter: filterItems,
   sort: sortItems,
   search: makeSearch
