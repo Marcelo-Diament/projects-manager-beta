@@ -14,6 +14,16 @@ window.onload = () => {
     filterResultsProjetosBtn = document.querySelector('#filterResultsProjetosBtn'),
     resulstsContainer = document.querySelector('#resultsContainer')
 
+  const prepareOptions = () => {
+    let projetos = getProjetos()
+    const getProjetoOptions = Helpers.options.get(projetos, 'projeto')
+    Helpers.options.show('#projetoSelect', getProjetoOptions)
+    const getTemaOptions = Helpers.options.get(projetos, 'tema')
+    Helpers.options.show('#temaSelect', getTemaOptions)
+    const orderPorOptions = Helpers.params(projetos)
+    Helpers.options.show('#orderPorSelect', orderPorOptions)
+  }
+
   const showProjetos = (projetos, title, description) => {
     let html = `
       <div>
@@ -77,5 +87,7 @@ window.onload = () => {
     filterResultsProjetosBtn.addEventListener('click', filterResultsProjetos, true)
   }
 
+  getProjetos()
+  prepareOptions()
   init()
 }
