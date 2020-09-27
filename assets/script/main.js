@@ -1,3 +1,5 @@
+import getProjetos from './modules/Projetos/Projetos'
+
 window.onload = () => {
 
   const projetoSelect = document.querySelector('#projetoSelect'),
@@ -5,20 +7,20 @@ window.onload = () => {
     orderPorSelect = document.querySelector('#orderPorSelect'),
     ascInput = document.querySelector('#ascInput'),
     descInput = document.querySelector('#descInput'),
-    filterResultsGruposBtn = document.querySelector('#filterResultsGruposBtn'),
+    filterResultsProjetosBtn = document.querySelector('#filterResultsProjetosBtn'),
     resulstsContainer = document.querySelector('#resultsContainer')
 
-  let gruposPlaceholder = [
+  let projetosPlaceholder = [
     {
       "id": 1,
-      "nome": "Grupo 01",
+      "nome": "Projeto 01",
       "logo": "https://djament.com.br/favicons/favicon-96x96.png",
       "tema": "eCommerce",
       "status": "Em andamento",
       "sprint": "01 | Arquitetura e Estrutura",
-      "descricao": "Exemplo de registro de grupo",
+      "descricao": "Exemplo de registro de projeto",
       "repositorio": "https://github.com/Marcelo-Diament/projects-manager-beta",
-      "corGrupo": "#8bc34a",
+      "corProjeto": "#8bc34a",
       "createdAt": "09/21/2020",
       "updatedAt": "09/21/2020",
       "integrantes": [
@@ -50,14 +52,14 @@ window.onload = () => {
     },
     {
       "id": 2,
-      "nome": "Grupo 02",
+      "nome": "Projeto 02",
       "logo": "https://djament.com.br/favicons/favicon-96x96.png",
       "tema": "Rede Social",
       "status": "Atrasado",
       "sprint": "00 | Definição do Tema",
-      "descricao": "Exemplo de registro de grupo",
+      "descricao": "Exemplo de registro de projeto",
       "repositorio": "https://github.com/Marcelo-Diament/projects-manager-beta",
-      "corGrupo": "#2196f3",
+      "corProjeto": "#2196f3",
       "createdAt": "09/21/2020",
       "updatedAt": "09/21/2020",
       "integrantes": [
@@ -89,34 +91,34 @@ window.onload = () => {
     }
   ]
 
-  const showGrupos = (grupos, title, description) => {
+  const showProjetos = (projetos, title, description) => {
     let html = `
       <div>
         <h2 class="mx-2 mt-3">${title}</h2>
         <p class="mx-2 mb-3">${description}</p>
     `
-    for (let grupo of grupos) {
+    for (let projeto of projetos) {
       html += `
-        <article style="border-left: 8px solid ${grupo.corGrupo};" class="bg-light rounded-lg m-2 p-3">
+        <article style="border-left: 8px solid ${projeto.corProjeto};" class="bg-light rounded-lg m-2 p-3">
           <header class="my-3 d-flex flex-column flex-nowrap">
-            <div class="grupo-id"><span class="ml-auto px-2 py-1 badge badge-pill badge-dark">GRUPO #0${grupo.id}</span></div>
+            <div class="projeto-id"><span class="ml-auto px-2 py-1 badge badge-pill badge-dark">PROJETO #0${projeto.id}</span></div>
             <div class="d-flex flex-row flex-nowrap justify-content-between align-items-start">
-              <img src="${grupo.logo}" height="96" width="96" class="my-2 circle border-info">
+              <img src="${projeto.logo}" height="96" width="96" class="my-2 circle border-info">
               <div class="my-2 d-flex flex-column flex-nowrap col">
-                <h4>${grupo.nome}</h4>
-                <small>Tema: ${grupo.tema}</small>
-                <small>Status: ${grupo.status}</small>
-                <small>Sprint: ${grupo.sprint}</small>
+                <h4>${projeto.nome}</h4>
+                <small>Tema: ${projeto.tema}</small>
+                <small>Status: ${projeto.status}</small>
+                <small>Sprint: ${projeto.sprint}</small>
               </div>
             </div>
           </header>
           <div class="d-flex flex-column flex-nowrap">
-            <small>Criado em: ${new Date(grupo.createdAt).toLocaleDateString()} | Atualizado em: ${new Date(grupo.updatedAt).toLocaleDateString()}</small>
-            <p class="mt-2">${grupo.descricao}</p>
+            <small>Criado em: ${new Date(projeto.createdAt).toLocaleDateString()} | Atualizado em: ${new Date(projeto.updatedAt).toLocaleDateString()}</small>
+            <p class="mt-2">${projeto.descricao}</p>
             <small>Integrantes:</small>
             <ul class="list-unstyled d-flex flex-row flex-wrap justify-content-between align-items-start">
       `;
-      for (let integrante of grupo.integrantes) {
+      for (let integrante of projeto.integrantes) {
         html += `
           <li class="ml-0">
             <small>
@@ -129,7 +131,7 @@ window.onload = () => {
       }
       html += `
             </ul>
-            <a href="${grupo.repositorio}" target="_blank" rel="noopener noreferrer" title="Ver repositório do grupo ${grupo.nome}" class="btn btn-info">Ver Repositório</a>
+            <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ver repositório do projeto ${projeto.nome}" class="btn btn-info">Ver Repositório</a>
           </div>
         </article>
       `;
@@ -140,13 +142,13 @@ window.onload = () => {
     resulstsContainer.innerHTML = html
   }
 
-  const filterResultsGrupos = e => {
+  const filterResultsProjetos = e => {
     e.preventDefault()
-    showGrupos(gruposPlaceholder, 'Grupos Encontrados', 'Grupos encontrados a partir da busca realizada')
+    showProjetos(projetosPlaceholder, 'Projetos Encontrados', 'Projetos encontrados a partir da busca realizada')
   }
 
   const init = () => {
-    filterResultsGruposBtn.addEventListener('click', filterResultsGrupos, true)
+    filterResultsProjetosBtn.addEventListener('click', filterResultsProjetos, true)
   }
 
   init()
