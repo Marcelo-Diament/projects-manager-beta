@@ -1,4 +1,5 @@
 import getProjetos from './modules/Projetos/Projetos'
+import Helpers from './modules/Helpers/Helpers'
 
 window.onload = () => {
 
