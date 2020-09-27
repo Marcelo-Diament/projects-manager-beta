@@ -1,3 +1,10 @@
+const getParams = arr => {
+  let results = []
+  for (let param in arr[0]) {
+    results.push(param)
+  }
+  return results
+}
 
 const sortItems = (arr, filterProp = 'id', order = 'Asc') => {
   let results = []
@@ -61,6 +68,7 @@ const makeSearch = (arr, filterProp = 'id', order = 'Asc', filterValue = undefin
 }
 
 const Helpers = {
+  params: getParams,
   filter: filterItems,
   sort: sortItems,
   search: makeSearch
