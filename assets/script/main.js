@@ -2,6 +2,9 @@ import getProjetos from './modules/Projetos/Projetos'
 
 window.onload = () => {
 
+  getProjetos(true)
+  getProjetos()
+
   const projetoSelect = document.querySelector('#projetoSelect'),
     temaSelect = document.querySelector('#temaSelect'),
     orderPorSelect = document.querySelector('#orderPorSelect'),
@@ -9,87 +12,6 @@ window.onload = () => {
     descInput = document.querySelector('#descInput'),
     filterResultsProjetosBtn = document.querySelector('#filterResultsProjetosBtn'),
     resulstsContainer = document.querySelector('#resultsContainer')
-
-  let projetosPlaceholder = [
-    {
-      "id": 1,
-      "nome": "Projeto 01",
-      "logo": "https://djament.com.br/favicons/favicon-96x96.png",
-      "tema": "eCommerce",
-      "status": "Em andamento",
-      "sprint": "01 | Arquitetura e Estrutura",
-      "descricao": "Exemplo de registro de projeto",
-      "repositorio": "https://github.com/Marcelo-Diament/projects-manager-beta",
-      "corProjeto": "#8bc34a",
-      "createdAt": "09/21/2020",
-      "updatedAt": "09/21/2020",
-      "integrantes": [
-        {
-          "nome": "Marcelo",
-          "sobrenome": "Diament",
-          "github": "https://github.com/marcelo-diament",
-          "linkedin": "https://linkedin.com/in/marcelo-diament"
-        },
-        {
-          "nome": "Marcelo",
-          "sobrenome": "Diament",
-          "github": "https://github.com/marcelo-diament",
-          "linkedin": "https://linkedin.com/in/marcelo-diament"
-        },
-        {
-          "nome": "Marcelo",
-          "sobrenome": "Diament",
-          "github": "https://github.com/marcelo-diament",
-          "linkedin": "https://linkedin.com/in/marcelo-diament"
-        },
-        {
-          "nome": "Marcelo",
-          "sobrenome": "Diament",
-          "github": "https://github.com/marcelo-diament",
-          "linkedin": "https://linkedin.com/in/marcelo-diament"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "nome": "Projeto 02",
-      "logo": "https://djament.com.br/favicons/favicon-96x96.png",
-      "tema": "Rede Social",
-      "status": "Atrasado",
-      "sprint": "00 | Definição do Tema",
-      "descricao": "Exemplo de registro de projeto",
-      "repositorio": "https://github.com/Marcelo-Diament/projects-manager-beta",
-      "corProjeto": "#2196f3",
-      "createdAt": "09/21/2020",
-      "updatedAt": "09/21/2020",
-      "integrantes": [
-        {
-          "nome": "Marcelo",
-          "sobrenome": "Diament",
-          "github": "https://github.com/marcelo-diament",
-          "linkedin": "https://linkedin.com/in/marcelo-diament"
-        },
-        {
-          "nome": "Marcelo",
-          "sobrenome": "Diament",
-          "github": "https://github.com/marcelo-diament",
-          "linkedin": "https://linkedin.com/in/marcelo-diament"
-        },
-        {
-          "nome": "Marcelo",
-          "sobrenome": "Diament",
-          "github": "https://github.com/marcelo-diament",
-          "linkedin": "https://linkedin.com/in/marcelo-diament"
-        },
-        {
-          "nome": "Marcelo",
-          "sobrenome": "Diament",
-          "github": "https://github.com/marcelo-diament",
-          "linkedin": "https://linkedin.com/in/marcelo-diament"
-        }
-      ]
-    }
-  ]
 
   const showProjetos = (projetos, title, description) => {
     let html = `
@@ -144,7 +66,10 @@ window.onload = () => {
 
   const filterResultsProjetos = e => {
     e.preventDefault()
-    showProjetos(projetosPlaceholder, 'Projetos Encontrados', 'Projetos encontrados a partir da busca realizada')
+    let results = []
+    results = getProjetos()
+    showProjetos(results, 'Projetos Encontrados', 'Projetos encontrados a partir da busca realizada')
+    resulstsContainer.scrollIntoView()
   }
 
   const init = () => {
