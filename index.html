@@ -15,7 +15,7 @@
 <body>
   <header class="border-bottom border-info">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Projetos Integradores</a>
+      <a class="navbar-brand" href="./index.html">Projetos Integradores</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,19 +32,19 @@
             <a class="nav-link" href="#">Cronograma</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="gruposDropdown" role="button" data-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="#" id="projetosDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Grupos
+              Projetos
             </a>
-            <div class="dropdown-menu" aria-labelledby="gruposDropdown">
-              <a class="dropdown-item" href="#">Grupo 01</a>
-              <a class="dropdown-item" href="#">Grupo 02</a>
-              <a class="dropdown-item" href="#">Grupo 03</a>
-              <a class="dropdown-item" href="#">Grupo 04</a>
-              <a class="dropdown-item" href="#">Grupo 05</a>
-              <a class="dropdown-item" href="#">Grupo 06</a>
-              <a class="dropdown-item" href="#">Grupo 07</a>
-              <a class="dropdown-item" href="#">Grupo 08</a>
+            <div class="dropdown-menu" aria-labelledby="projetosDropdown">
+              <a class="dropdown-item" href="#">Projeto 01</a>
+              <a class="dropdown-item" href="#">Projeto 02</a>
+              <a class="dropdown-item" href="#">Projeto 03</a>
+              <a class="dropdown-item" href="#">Projeto 04</a>
+              <a class="dropdown-item" href="#">Projeto 05</a>
+              <a class="dropdown-item" href="#">Projeto 06</a>
+              <a class="dropdown-item" href="#">Projeto 07</a>
+              <a class="dropdown-item" href="#">Projeto 08</a>
             </div>
           </li>
           <li class="nav-item">
@@ -65,9 +65,9 @@
             <div class="form-row col-12">
 
               <fieldset class="form-group col-sm-6 mb-md-0">
-                <legend class="col-form-label col-12 p-0">Grupo</legend>
-                <select class="custom-select my-1" name="grupo" id="grupoSelect">
-                  <option value="" selected disabled required>Selecione um grupo</option>
+                <legend class="col-form-label col-12 p-0">Projeto</legend>
+                <select class="custom-select my-1" name="projeto" id="projetoselect">
+                  <option value="" selected disabled required>Selecione um projeto</option>
                 </select>
               </fieldset>
 
@@ -106,7 +106,8 @@
           </div>
         </fieldset>
 
-        <fieldset class="form-group col-md-1 pl-md-0 d-flex flex-column justify-content-around align-items-stretch" id="formBtns">
+        <fieldset class="form-group col-md-1 pl-md-0 d-flex flex-column justify-content-around align-items-stretch"
+          id="formBtns">
           <button type="reset" class="btn btn-secondary col my-2" id="clearResultsBtn">Limpar</button>
           <button type="submit" class="btn btn-info col my-2" id="filterResultsBtn">Filtrar</button>
         </fieldset>
