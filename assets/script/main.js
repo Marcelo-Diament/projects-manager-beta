@@ -32,7 +32,7 @@ window.onload = () => {
   const makeFilterParams = () => {
     let temas = [...temaSelect.children],
       temaSelected = temas.filter(e => e.selected)[0].value
-    
+
     let projetos = [...projetoSelect.children],
       projetoSelected = projetos.filter(e => e.selected)[0].value
 
@@ -104,12 +104,30 @@ window.onload = () => {
 
   const filterResultsProjetos = e => {
     e.preventDefault()
-    let filterParams = makeFilterParams()
-    console.log(filterParams)
-    let results = []
-    results = getProjetos()
+    let filterParams = makeFilterParams(),
+      results = [],
+      projetos = getProjetos(),
+      params = Helpers.params(projetos)
+
+    for (let param of params) {
+      if (!filterParams[param] || filterParams[param] !== undefined) {
+        results = results.length
+          ? Helpers.search(results, param, filterParams.order, filterParams[param])
+          : Helpers.search(projetos, param, filterParams.order, filterParams[param])
+      }
+    }
+
+    if (!results.length) {
+      alert('Ops! Estamos sem resultados para sua busca...\nConfira outros resultados!')
+      results = getProjetos()
+    }
+
+    results = Helpers.search(results, filterParams.orderPor, filterParams.order)
+
     showProjetos(results, 'Projetos Encontrados', 'Projetos encontrados a partir da busca realizada')
     resulstsContainer.scrollIntoView()
+
+    return results
   }
 
   const init = () => {
