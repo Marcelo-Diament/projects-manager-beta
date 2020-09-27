@@ -45,7 +45,15 @@ const sortItems = (arr, filterProp = 'id', order = 'Asc') => {
   return results
 }
 
+const filterItems = (arr, filterProp = 'id', filterValue = undefined) => {
+  let results = []
+  if (arr && arr !== undefined && filterValue && filterValue !== undefined)
+    results = arr.filter(item => item[filterProp] === filterValue)
+  return results
+}
+
 const Helpers = {
+  filter: filterItems,
   sort: sortItems
 }
 export default Helpers
