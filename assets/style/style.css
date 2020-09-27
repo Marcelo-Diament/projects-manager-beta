@@ -1,0 +1,42 @@
+body {
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+#resultsContainer div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+#resultsContainer div h2,
+#resultsContainer div p {
+  flex: 1 0 100%;
+}
+#resultsContainer article {
+  flex: 1 0 auto;
+}
+
+@media only screen and (min-width: 577px) {
+  #resultsContainer div article {
+    flex: 1 1 45%;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  #resultsContainer div article {
+    flex: 1 1 33%;
+  }
+}
