@@ -1,5 +1,5 @@
-import getProjetos from './modules/Projetos/Projetos'
-import Helpers from './modules/Helpers/Helpers'
+import getProjetos from './modules/Projetos/Projetos.js'
+import Helpers from './modules/Helpers/Helpers.js'
 
 window.onload = () => {
 
@@ -64,10 +64,6 @@ window.onload = () => {
 
     let orderPorOptions = [...orderPorSelect.children],
       orderPorOptionsSelected = orderPorOptions.filter(e => e.selected)[0].value
-
-    // let getStatusOptions = Helpers.options.get(projetos, 'status'),
-    //   status = [...getStatusOptions],
-    //   statusSelected = projetos.filter(e => e.selected)[0].value
 
     return {
       tema: temaSelected ? temaSelected : undefined,
@@ -186,5 +182,5 @@ window.onload = () => {
     prepareOptions()
     init()
     prepareOptionsActions()
-  }, 150)
+  }, 1500)
 }
