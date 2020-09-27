@@ -5,7 +5,7 @@ window.onload = () => {
     orderPorSelect = document.querySelector('#orderPorSelect'),
     ascInput = document.querySelector('#ascInput'),
     descInput = document.querySelector('#descInput'),
-    filterButton = document.querySelector('#filterResultsBtn'),
+    filterResultsGruposBtn = document.querySelector('#filterResultsGruposBtn'),
     resulstsContainer = document.querySelector('#resultsContainer')
 
   let gruposPlaceholder = [
@@ -140,13 +140,13 @@ window.onload = () => {
     resulstsContainer.innerHTML = html
   }
 
-  const filterResults = e => {
+  const filterResultsGrupos = e => {
     e.preventDefault()
     showGrupos(gruposPlaceholder, 'Grupos Encontrados', 'Grupos encontrados a partir da busca realizada')
   }
 
   const init = () => {
-    filterButton.addEventListener('click', filterResults, true)
+    filterResultsGruposBtn.addEventListener('click', filterResultsGrupos, true)
   }
 
   init()
