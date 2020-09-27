@@ -16,12 +16,13 @@ window.onload = () => {
 
   const prepareOptions = () => {
     let projetos = getProjetos()
-    const getProjetoOptions = Helpers.options.get(projetos, 'projeto')
+    const getProjetoOptions = Helpers.options.get(projetos, 'nome')
     Helpers.options.show('#projetoSelect', getProjetoOptions)
     const getTemaOptions = Helpers.options.get(projetos, 'tema')
     Helpers.options.show('#temaSelect', getTemaOptions)
     const orderPorOptions = Helpers.params(projetos)
-    Helpers.options.show('#orderPorSelect', orderPorOptions)
+    const orderPorOptionsDisponiveis = orderPorOptions.filter(e => (e !== 'corProjeto' && e !== 'descricao' && e !== 'integrantes' && e !== 'logo' && e !== 'repositorio') )
+    Helpers.options.show('#orderPorSelect', orderPorOptionsDisponiveis)
   }
 
   const showProjetos = (projetos, title, description) => {
