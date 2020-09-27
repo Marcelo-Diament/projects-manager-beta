@@ -79,6 +79,19 @@ window.onload = () => {
     }
   }
 
+  const updateSearchHistory = lastSearchParams => {
+    if (localStorage.getItem('searchHistory') !== null) {
+      let searchHistory = JSON.parse(localStorage.getItem('searchHistory'))
+      searchHistory.push(lastSearchParams)
+      localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+    } else {
+      let searchHistory = []
+      searchHistory.push(lastSearchParams)
+      localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+    }
+    localStorage.setItem('lastSearchParams', JSON.stringify(lastSearchParams))
+  }
+
   const showProjetos = (projetos, title, description) => {
     let html = `
       <div>
@@ -132,8 +145,11 @@ window.onload = () => {
 
   const filterResultsProjetos = e => {
     e.preventDefault()
-    let filterParams = makeFilterParams(),
-      results = [],
+
+    let filterParams = makeFilterParams()
+    updateSearchHistory()
+
+    let results = [],
       projetos = getProjetos(),
       params = Helpers.params(projetos)
 
@@ -151,10 +167,9 @@ window.onload = () => {
     }
 
     results = Helpers.search(results, filterParams.orderPor, filterParams.order)
-
+    localStorage.setItem('lastSearchResults', JSON.stringify(results))
     showProjetos(results, 'Projetos Encontrados', 'Projetos encontrados a partir da busca realizada')
     resulstsContainer.scrollIntoView()
-
     return results
   }
 
