@@ -16,16 +16,26 @@ const getOptions = (arr, filterProp = 'tema') => {
   return results
 }
 
-const showOptions = (select, options) => {
+const showOptions = (select, options, menuLinks = false) => {
   let optionsSelect = document.querySelector(select)
   for (let option of options.sort()) {
-    let optionTag = document.createElement('OPTION')
-    optionTag.setAttribute('id', `${select.substr(1).replace(/\s/g, '-')}_${option.replace(/\s/g, '-')}`)
-    optionTag.setAttribute('class', `${select.substr(1).replace(/\s/g, '-').replace(/select/gi, '-option')}`)
-    optionTag.setAttribute('value', option.toString())
-    let optionText = document.createTextNode(option.toString())
-    optionTag.appendChild(optionText)
-    optionsSelect.appendChild(optionTag)
+    if (menuLinks === true) {
+      let linkTag = document.createElement('A')
+      linkTag.setAttribute('id', `${select.substr(1).replace(/\s/g, '-')}_${option.replace(/\s/g, '-')}`)
+      linkTag.setAttribute('class', `dropdown-item`)
+      linkTag.setAttribute('href', `#`)
+      let linkText = document.createTextNode(option.toString())
+      linkTag.appendChild(linkText)
+      optionsSelect.appendChild(linkTag)
+    } else {
+      let optionTag = document.createElement('OPTION')
+      optionTag.setAttribute('id', `${select.substr(1).replace(/\s/g, '-')}_${option.replace(/\s/g, '-')}`)
+      optionTag.setAttribute('class', `${select.substr(1).replace(/\s/g, '-').replace(/select/gi, '-option')}`)
+      optionTag.setAttribute('value', option.toString())
+      let optionText = document.createTextNode(option.toString())
+      optionTag.appendChild(optionText)
+      optionsSelect.appendChild(optionTag)
+    }
   }
 }
 

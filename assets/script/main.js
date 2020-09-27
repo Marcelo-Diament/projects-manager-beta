@@ -12,16 +12,20 @@ window.onload = () => {
     ascInput = document.querySelector('#ascInput'),
     descInput = document.querySelector('#descInput'),
     filterResultsProjetosBtn = document.querySelector('#filterResultsProjetosBtn'),
-    resulstsContainer = document.querySelector('#resultsContainer')
+    resulstsContainer = document.querySelector('#resultsContainer'),
+    projetosLinksMenu = document.querySelector('#projetosLinksMenu'),
+    temasLinksMenu = document.querySelector('#temasLinksMenu')
 
   const prepareOptions = () => {
     let projetos = getProjetos()
     const getProjetoOptions = Helpers.options.get(projetos, 'nome')
     Helpers.options.show('#projetoSelect', getProjetoOptions)
+    Helpers.options.show('#projetosLinksMenu', getProjetoOptions, true)
     const getTemaOptions = Helpers.options.get(projetos, 'tema')
     Helpers.options.show('#temaSelect', getTemaOptions)
+    Helpers.options.show('#temasLinksMenu', getTemaOptions, true)
     const orderPorOptions = Helpers.params(projetos)
-    const orderPorOptionsDisponiveis = orderPorOptions.filter(e => (e !== 'corProjeto' && e !== 'descricao' && e !== 'integrantes' && e !== 'logo' && e !== 'repositorio') )
+    const orderPorOptionsDisponiveis = orderPorOptions.filter(e => (e !== 'corProjeto' && e !== 'descricao' && e !== 'integrantes' && e !== 'logo' && e !== 'repositorio'))
     Helpers.options.show('#orderPorSelect', orderPorOptionsDisponiveis)
   }
 
@@ -88,7 +92,9 @@ window.onload = () => {
     filterResultsProjetosBtn.addEventListener('click', filterResultsProjetos, true)
   }
 
-  getProjetos()
-  prepareOptions()
-  init()
+  setTimeout(() => {
+    getProjetos()
+    prepareOptions()
+    init()
+  }, 150)
 }
