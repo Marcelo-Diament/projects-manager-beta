@@ -29,6 +29,28 @@ window.onload = () => {
     Helpers.options.show('#orderPorSelect', orderPorOptionsDisponiveis)
   }
 
+  const makeFilterParams = () => {
+    let temas = [...temaSelect.children],
+      temaSelected = temas.filter(e => e.selected)[0].value
+    
+    let projetos = [...projetoSelect.children],
+      projetoSelected = projetos.filter(e => e.selected)[0].value
+
+    let orderPorOptions = [...orderPorSelect.children],
+      orderPorOptionsSelected = orderPorOptions.filter(e => e.selected)[0].value
+
+    // let getStatusOptions = Helpers.options.get(projetos, 'status'),
+    //   status = [...getStatusOptions],
+    //   statusSelected = projetos.filter(e => e.selected)[0].value
+
+    return {
+      tema: temaSelected ? temaSelected : undefined,
+      projeto: projetoSelected ? projetoSelected : undefined,
+      orderPor: orderPorOptionsSelected ? orderPorOptionsSelected : 'id',
+      order: descInput.checked ? 'Desc' : 'Asc'
+    }
+  }
+
   const showProjetos = (projetos, title, description) => {
     let html = `
       <div>
@@ -82,6 +104,8 @@ window.onload = () => {
 
   const filterResultsProjetos = e => {
     e.preventDefault()
+    let filterParams = makeFilterParams()
+    console.log(filterParams)
     let results = []
     results = getProjetos()
     showProjetos(results, 'Projetos Encontrados', 'Projetos encontrados a partir da busca realizada')
