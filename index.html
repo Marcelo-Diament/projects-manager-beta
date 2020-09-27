@@ -42,12 +42,89 @@
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" type="button" data-toggle="collapse" data-target="#navContainer" aria-expanded="false"
+              aria-controls="navContainer"><i class="far fa-search"></i></a>
+          </li>
         </ul>
       </div>
     </nav>
   </header>
   <main id="root">
-    <nav id="navContainer"></nav>
+    <nav class="collapse bg-light p-3" id="navContainer">
+      <form action="" class="d-flex flex-column flex-nowrap">
+
+        <fieldset class="form-group" id="formBusca">
+          <div class="row">
+            <legend class="col-form-label col-12 pt-0 font-weight-bold">Buscar por</legend>
+            <div class="form-row col-12">
+              <div class="form-group col-sm-6">
+                <label for="nomeInput">Nome</label>
+                <input class="form-control" type="text" name="nome" placeholder="Maria" id="nomeInput">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="sobrenomeInput">Sobrenome</label>
+                <input class="form-control" type="text" name="sobrenome" placeholder="Silva" id="sobrenomeInput">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-group" id="formFiltros">
+          <div class="row">
+            <legend class="col-form-label col-12 pt-0 font-weight-bold">Filtrar por</legend>
+            <div class="form-row col-12">
+              <fieldset class="form-group col-sm-6">
+                <legend class="col-form-label col-12 p-0">Área Profissional</legend>
+                <select class="custom-select my-1" name="areaProfissional" id="areaProfissionalSelect">
+                  <option value="" selected disabled required>Selecione uma opção</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group col-sm-6">
+                <legend class="col-form-label col-12 p-0">Sexo</legend>
+                <div class="form-check form-check-inline py-2 ml-md-3">
+                  <input class="form-check-input" type="radio" name="sexo" value="Feminino" id="sexoFemininoInput">
+                  <label class="form-check-label" for="sexoFemininoInput">Feminino</label>
+                </div>
+                <div class="form-check form-check-inline py-2 ml-md-3">
+                  <input class="form-check-input" type="radio" name="sexo" value="Masculino" id="sexoMasculinoInput">
+                  <label class="form-check-label" for="sexoMasculinoInput">Masculino</label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-group" id="formOrdenar">
+          <div class="row">
+            <legend class="col-form-label col-12 pt-0 font-weight-bold">Ordenar por</legend>
+            <div class="form-row col-12">
+              <fieldset class="form-group col-sm-6">
+                <legend class="col-form-label col-12 p-0">Parâmetro</legend>
+                <select class="custom-select my-1" name="orderPor" id="orderPorSelect">
+                  <option value="" selected disabled required>Selecione uma opção</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group col-sm-6">
+                <legend class="col-form-label col-12 p-0">Ordenação</legend>
+                <div class="form-check form-check-inline py-2 ml-md-3">
+                  <input class="form-check-input" type="radio" name="order" value="Asc" id="ascInput">
+                  <label class="form-check-label" for="ascInput">Crescente</label>
+                </div>
+                <div class="form-check form-check-inline py-2 ml-md-3">
+                  <input class="form-check-input" type="radio" name="order" value="Desc" id="descInput">
+                  <label class="form-check-label" for="descInput">Decrescente</label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="reset" class="btn btn-secondary my-2" id="clearResultsBtn">Limpar</button>
+        <button type="submit" class="btn btn-info my-2" id="filterResultsBtn">Filtrar</button>
+
+      </form>
+    </nav>
     <section id="resultsContainer"></section>
   </main>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
