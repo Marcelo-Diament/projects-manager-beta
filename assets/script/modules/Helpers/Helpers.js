@@ -16,6 +16,19 @@ const getOptions = (arr, filterProp = 'tema') => {
   return results
 }
 
+const showOptions = (select, options) => {
+  let optionsSelect = document.querySelector(select)
+  for (let option of options.sort()) {
+    let optionTag = document.createElement('OPTION')
+    optionTag.setAttribute('id', `${select.substr(1).replace(/\s/g, '-')}_${option.replace(/\s/g, '-')}`)
+    optionTag.setAttribute('class', `${select.substr(1).replace(/\s/g, '-').replace(/select/gi, '-option')}`)
+    optionTag.setAttribute('value', option.toString())
+    let optionText = document.createTextNode(option.toString())
+    optionTag.appendChild(optionText)
+    optionsSelect.appendChild(optionTag)
+  }
+}
+
 const sortItems = (arr, filterProp = 'id', order = 'Asc') => {
   let results = []
   if (arr && arr !== undefined) {
@@ -79,7 +92,10 @@ const makeSearch = (arr, filterProp = 'id', order = 'Asc', filterValue = undefin
 
 const Helpers = {
   params: getParams,
-  options: getOptions,
+  options: {
+    get: getOptions,
+    show: showOptions
+  },
   filter: filterItems,
   sort: sortItems,
   search: makeSearch
