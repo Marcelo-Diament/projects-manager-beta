@@ -24,6 +24,7 @@ const showOptions = (select, options, menuLinks = false) => {
       linkTag.setAttribute('id', `${select.substr(1).replace(/\s/g, '-')}_${option.replace(/\s/g, '-')}`)
       linkTag.setAttribute('class', `dropdown-item`)
       linkTag.setAttribute('href', `#`)
+      linkTag.setAttribute('data-option', `${option}`)
       let linkText = document.createTextNode(option.toString())
       linkTag.appendChild(linkText)
       optionsSelect.appendChild(linkTag)

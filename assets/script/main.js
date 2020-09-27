@@ -29,6 +29,34 @@ window.onload = () => {
     Helpers.options.show('#orderPorSelect', orderPorOptionsDisponiveis)
   }
 
+  const getProjetoByNome = nome => {
+    let projetos = getProjetos()
+    let results = []
+    results = Helpers.search(projetos, 'nome', 'Asc', nome)
+    console.log(results)
+    showProjetos(results, `Projeto ${nome}`, `Resultados para busca de projeto por nome ${nome}`)
+  }
+
+  const getProjetoByTema = tema => {
+    let projetos = getProjetos()
+    let results = []
+    results = Helpers.search(projetos, 'tema', 'Asc', tema)
+    console.log(results)
+    showProjetos(results, `Tema ${tema}`, `Resultados para busca de projeto por tema ${tema}`)
+  }
+
+  const prepareOptionsActions = () => {
+    for (let projetoLink of projetosLinksMenu.children) {
+      let nome = projetoLink.getAttribute('data-option')
+      projetoLink.addEventListener('click', () => getProjetoByNome(nome))
+    }
+
+    for (let temaLink of temasLinksMenu.children) {
+      let tema = temaLink.getAttribute('data-option')
+      temaLink.addEventListener('click', () => getProjetoByTema(tema))
+    }
+  }
+
   const makeFilterParams = () => {
     let temas = [...temaSelect.children],
       temaSelected = temas.filter(e => e.selected)[0].value
@@ -131,12 +159,19 @@ window.onload = () => {
   }
 
   const init = () => {
+    let projetos = getProjetos()
+
     filterResultsProjetosBtn.addEventListener('click', filterResultsProjetos, true)
+
+    showProjetos(projetos, 'Projetos Integradores', 'Todos os projetos ordenados por id')
+
+
   }
 
   setTimeout(() => {
     getProjetos()
     prepareOptions()
     init()
+    prepareOptionsActions()
   }, 150)
 }
