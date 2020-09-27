@@ -25,6 +25,7 @@ body {
 #resultsContainer div p {
   flex: 1 0 100%;
 }
+
 #resultsContainer article {
   flex: 1 0 auto;
 }
@@ -37,6 +38,6 @@ body {
 
 @media only screen and (min-width: 1201px) {
   #resultsContainer div article {
-    flex: 1 1 33%;
+    flex: 1 1 31.3%;
   }
 }
