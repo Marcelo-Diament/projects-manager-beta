@@ -33,7 +33,6 @@ window.onload = () => {
     let projetos = getProjetos()
     let results = []
     results = Helpers.search(projetos, 'nome', 'Asc', nome)
-    console.log(results)
     showProjetos(results, `Projeto ${nome}`, `Resultados para busca de projeto por nome ${nome}`)
   }
 
@@ -41,7 +40,6 @@ window.onload = () => {
     let projetos = getProjetos()
     let results = []
     results = Helpers.search(projetos, 'tema', 'Asc', tema)
-    console.log(results)
     showProjetos(results, `Tema ${tema}`, `Resultados para busca de projeto por tema ${tema}`)
   }
 
