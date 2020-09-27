@@ -52,8 +52,17 @@ const filterItems = (arr, filterProp = 'id', filterValue = undefined) => {
   return results
 }
 
+const makeSearch = (arr, filterProp = 'id', order = 'Asc', filterValue = undefined) => {
+  let results = []
+  filterValue !== undefined
+    ? results = filterItems(arr, filterProp, filterValue)
+    : results = sortItems(arr, filterProp, order)
+  return results
+}
+
 const Helpers = {
   filter: filterItems,
-  sort: sortItems
+  sort: sortItems,
+  search: makeSearch
 }
 export default Helpers
