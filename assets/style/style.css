@@ -27,7 +27,13 @@ body {
 }
 
 #resultsContainer article {
-  flex: 1 0 auto;
+  position: relative;
+}
+
+#resultsContainer article .grupo-id{
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
 
 @media only screen and (min-width: 577px) {
