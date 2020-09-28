@@ -1,4 +1,5 @@
 import getProjetos from './modules/Projetos/Projetos.js'
+import getRepo from './modules/Repo/Repo.js'
 import Helpers from './modules/Helpers/Helpers.js'
 
 window.onload = () => {
@@ -198,6 +199,15 @@ window.onload = () => {
     return results
   }
 
+  const getRepos = projetos => {
+    let reposInfos = []
+    for (let projeto of projetos) {
+      let repoInfo = getRepo(projeto.repositorio)
+      reposInfos.push(repoInfo)
+    }
+    return reposInfos
+  }
+
   const init = () => {
     let projetos = getProjetos()
 
@@ -205,6 +215,7 @@ window.onload = () => {
 
     showProjetos(projetos, 'Projetos Integradores', 'Todos os projetos ordenados por id')
 
+    getRepos(projetos)
 
   }
 
