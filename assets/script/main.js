@@ -99,7 +99,12 @@ window.onload = () => {
     `
     for (let projeto of projetos) {
 
+      let repoInfos = getRepo(projeto.repositorio)
+
       let modalBody = `<p class="mt-2">${projeto.descricao}</p>
+      <small>Repo ID: ${repoInfos.id} | Repo Atualizado em: ${new Date(repoInfos.updated_at).toLocaleDateString()}</small><br/>
+      <small>Repo Description: ${repoInfos.description}</small><br/>
+      <small><a href="${repoInfos.html_url}" rel="noopener noreferrer" target="_blank" title="Repositório do projeto ${projeto.nome}">Repositório</a> | <a href="${projeto.repositorio}/blob/master/README.md" rel="noopener noreferrer" target="_blank" title="README do projeto ${projeto.nome}">README.md</a></small><br/>
       <small>Integrantes:</small>
       <ul class="list-unstyled d-flex flex-row flex-wrap justify-content-between align-items-start">
       `;
