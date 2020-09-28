@@ -157,7 +157,7 @@ window.onload = () => {
           </header>
           <div class="d-flex flex-column flex-nowrap">
             <small>Criado em: ${new Date(projeto.createdAt).toLocaleDateString()} | Atualizado em: ${new Date(projeto.updatedAt).toLocaleDateString()}</small>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalProjeto${projeto.id}">Info</button>
+            <button type="button" class="btn btn-info mt-3" data-toggle="modal" data-target="#modalProjeto${projeto.id}">Info</button>
           </div>
         </article>
       `;
