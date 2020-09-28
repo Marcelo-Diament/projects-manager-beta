@@ -87,6 +87,7 @@ window.onload = () => {
   }
 
   const showProjetos = (projetos, title, description) => {
+    let modais = ``
     let html = `
       <div>
         <h2 class="mx-2 mt-3">${title}</h2>
@@ -112,7 +113,7 @@ window.onload = () => {
             <p class="mt-2">${projeto.descricao}</p>
             <small>Integrantes:</small>
             <ul class="list-unstyled d-flex flex-row flex-wrap justify-content-between align-items-start">
-      `;
+      `
       for (let integrante of projeto.integrantes) {
         html += `
           <li class="ml-0">
@@ -122,19 +123,42 @@ window.onload = () => {
               <a href="${integrante.linkedin}" target="_blank" rel="noopener noreferrer" title="Acessar Linked In de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-linkedin"></i></a>
             </small>
           </li>
-        `;
+        `
       }
       html += `
             </ul>
-            <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ver repositório do projeto ${projeto.nome}" class="btn btn-info">Ver Repositório</a>
+            <a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#modal-${projeto.id}"><i class="fas fa-info-circle"></i> Informações</a>
           </div>
         </article>
-      `;
+      `
+      modais += `
+        <div class="modal fade" id="modal-${projeto.id}" tabindex="-1" aria-labelledby="modal-${projeto.id}-label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal-${projeto.id}-label">#${projeto.id} | ${projeto.nome}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>${projeto.descricao}</p>
+                <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ver repositório do projeto ${projeto.nome}" class="btn btn-info">Ver Repositório</a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
     }
     html += `
-        </div>
-      `;
+      </div>
+    `;
     resulstsContainer.innerHTML = html
+    document.querySelector('body').innerHTML += modais
   }
 
   const filterResultsProjetos = e => {
