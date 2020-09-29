@@ -101,30 +101,194 @@ window.onload = () => {
 
       let repoInfos = getRepo(projeto.repositorio)
 
-      let modalBody = `<p class="mt-2">${projeto.descricao}</p>
-      <small>Repo ID: ${repoInfos.id} | Repo Atualizado em: ${new Date(repoInfos.updated_at).toLocaleDateString()}</small><br/>
-      <small>Repo Description: ${repoInfos.description}</small><br/>
-      <small><a href="${repoInfos.html_url}" rel="noopener noreferrer" target="_blank" title="Repositório do projeto ${projeto.nome}">Repositório</a> | <a href="${projeto.repositorio}/blob/master/README.md" rel="noopener noreferrer" target="_blank" title="README do projeto ${projeto.nome}">README.md</a></small><br/>
-      <small>Integrantes:</small>
-      <ul class="list-unstyled d-flex flex-row flex-wrap justify-content-between align-items-start">
+      let modalBody = `
+      <div class="mb-2 collapse" id="collapseSobre-${projeto.id}">
+        <small><b>Projeto</b></small><br/>
+        <small>${projeto.descricao}</small><br/>
+        <small><b>Integrantes</b></small>
+        <ul class="list-unstyled row">
       `;
       for (let integrante of projeto.integrantes) {
         modalBody += `
-          <li class="ml-0">
+          <li class="ml-0 col-6">
             <small>
               ${integrante.nome} ${integrante.sobrenome}
-              <a href="${integrante.github}" target="_blank" rel="noopener noreferrer" title="Acessar Github de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-github"></i></a>
-              <a href="${integrante.linkedin}" target="_blank" rel="noopener noreferrer" title="Acessar Linked In de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-linkedin"></i></a>
+        `;
+        if (integrante.github && integrante.github !== '' && integrante.github !== undefined) {
+          modalBody += `
+                <a href="${integrante.github}" target="_blank" rel="noopener noreferrer" title="Acessar Github de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-github"></i></a>
+          `;
+        }
+        if (integrante.linkedin && integrante.linkedin !== '' && integrante.linkedin !== undefined) {
+          modalBody += `
+                <a href="${integrante.linkedin}" target="_blank" rel="noopener noreferrer" title="Acessar Linked In de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-linkedin"></i></a>
+          `;
+        }
+        modalBody += `
             </small>
           </li>
         `;
       }
       modalBody += `
         </ul>
+      </div>
+      <div class="mb-2 collapse" id="collapseRepo-${projeto.id}">
+        <small><b>Repositório</b></small><br/>
+        <small>Id: ${repoInfos.id}</small><br/>
+        <small>Criado em ${new Date(repoInfos.created_at).toLocaleDateString()}</small><br/>
+        <small>Atualizado em ${new Date(repoInfos.updated_at).toLocaleDateString()}</small><br/>
+        <small>Nome do repositório: ${repoInfos.name}</small><br/>
+        <small>Links <a href="${repoInfos.html_url}" rel="noopener noreferrer" target="_blank" title="Repositório do projeto ${projeto.nome}">Repositório</a> | <a href="${projeto.repositorio}/blob/master/README.md" rel="noopener noreferrer" target="_blank" title="README do projeto ${projeto.nome}">README.md</a></small><br/>
+        <small>Descrição: ${repoInfos.description}</small><br/>
+      </div>
+      <div class="mb-2 collapse" id="collapseSprints-${projeto.id}">
+        <small><b>Sprints | 01. Front</b></small>
+        <ul class="list-unstyled row">
+          <li class="my-3 col-10 offset-1 done">
+            <small><b>01.01. Planejamento Inicial <span class="float-right">01/10/20</span></b></small><br/>
+            <small><b>Entrega: link do repositório com todos os colaboradores definidos, link do Trello.</b></small><br/>
+            <small class="text-black-50"><i>Escopo previsto, referências, features principais, fluxo de trabalho (gitflow e gestão do projeto - como Trello) e definições gerais.</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1 doing">
+            <small><b>01.02. Arquitetura de Informações e UX <span class="float-right">08/10/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Padrões de layout, estilo, estrutura HTML (semântica de preferência) definidos E aplicados em uma ou mais páginas de exemplo com: Formulário, Tabela, Lista, Carrossel de Imagens.</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1">
+            <small><b>01.03. Front | Usuário Deslogado <span class="float-right">15/10/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Layouts (HTML, CSS e JS - com ou sem Bootstrap) da Home, página institucional ('Sobre'), página de Contato, vitrine (como 'Categoria de Produtos' ou 'Feed de Posts') e página de Detalhe (do 'Post', 'Serviço' ou 'Produto', por exemplo).</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1">
+            <small><b>01.04. Front | Administrador <span class="float-right">22/10/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Layouts (HTML, CSS e JS - com ou sem Bootstrap) das páginas administrativas (lista - ou tabela - de usuários, formulário de edição de usuários, lista - ou tabela - de categorias, formulário de edição de categoria, lista de produtos/serviços, formulário de edição de produtos/serviços).</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1">
+            <small><b>01.05. Front | Usuário Logado e Revisão <span class="float-right">29/10/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Layouts (HTML, CSS e JS - com ou sem Bootstrap) das páginas do usuário logado (formulário de edição de usuários, lista - ou tabela - de histórico (de pedidos ou posts, por exemplo). Revisão do front como um todo (HTML, CSS e JS).</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1">
+            <small><b>01.06. Front | React.js - Componentização e Rotas <span class="float-right">05/11/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Transição do projeto para o framework React.js considerando o desmembramento dos elementos em componentes e as rotas (GET).</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+        </ul>
+        <br/>
+        <ul class="list-unstyled row">
+          <li class="my-3 col-10 offset-1">
+            <small><b>Apresentação 01 (opcional) | Front End v1 <span class="float-right">11/11/20</span></b></small><br/>
+          </li>
+        </ul>
+        <br/>
+        <small><b>Sprints | 02. Dados</b></small>
+        <ul class="list-unstyled row">
+          <li class="my-3 col-10 offset-1">
+            <small><b>02.01. Dados | Estrutura do Banco <span class="float-right">12/11/20</span></b></small><br/>
+            <small><b>Entrega: mapeamento dos dados (e possível protótipo).</b></small><br/>
+            <small class="text-black-50"><i>Definição da estrutura do banco de dados - quais tabelas serão criadas, quais campos cada uma delas terá e como se relacionam os dados. Revisão do front para adequação ao banco de dados.</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1">
+            <small><b>02.02. Dados | Migration <span class="float-right">19/11/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Criação das migrations - que são como scripts que criam as tabelas e relacionamentos para nós.</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1">
+            <small><b>02.03. Dados | Seeds  + Read (CRUD) <span class="float-right">26/11/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Criação dos seeds (que populam o banco para nós) e consumo dos dados do banco no front.</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+        </ul>
+        <br/>
+        <ul class="list-unstyled row">
+          <li class="my-3 col-10 offset-1">
+            <small><b>Apresentação 02 (opcional) | Front End v2 <span class="float-right">11/11/20</span></b></small></b></small><br/>
+          </li>
+        </ul>
+        <br/>
+        <small><b>Sprints | 03. Back</b></small>
+        <ul class="list-unstyled row">
+          <li class="my-3 col-10 offset-1">
+            <small><b>03.01. Back | Create (CRUD) <span class="float-right">03/12/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Definição das operações de Criação (cadastro de usuário, produto, serviço e/ou post).</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1">
+            <small><b>03.02. Back | Update e Delete (CRUD) <span class="float-right">10/12/20</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Criação das migrations - que são como scripts que criam as tabelas e relacionamentos para nós.</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+        </ul>
+        <small><b>Sprints | 04. Revisão Final</b></small>
+        <ul class="list-unstyled row">
+          <li class="my-3 col-10 offset-1">
+            <small><b>04.01. Revisão | Extras <span class="float-right">12/01/21</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Implantação de features extras, otimizar código (como SEO e microdados) e preparação de cenários para a apresentação.</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+          <li class="my-3 col-10 offset-1">
+            <small><b>04.02. Revisão | Refatoração <span class="float-right">19/01/21</span></b></small><br/>
+            <small><b>Entrega: link do Pull Request final.</b></small><br/>
+            <small class="text-black-50"><i>Revisão do projeto, otimização do código, da arquitetura, de performance e conteúdo mais próximo do final.</i></small><br/>
+            <div class="progress" style="height: 24px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+          </li>
+        </ul>
+        <br/>
+        <ul class="list-unstyled row">
+          <li class="my-3 col-10 offset-1">
+            <small><b>Apresentação 03 | Back End <span class="float-right">21/01/21</span></b></small></b></small><br/>
+          </li>
+        </ul>
+        <ul class="list-unstyled row">
+          <li class="my-3 col-10 offset-1 final">
+            <small><b>Apresentação Final | Front End v2 <span class="float-right">26/01/21</span></b></small></b></small><br/>
+          </li>
+        </ul>
+        <br/>
+      </div>
       `;
       let modal = `
         <div class="modal fade" id="modalProjeto${projeto.id}" tabindex="-1" aria-labelledby="modalProjeto${projeto.id}Label" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-xl">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 id="modalProjeto${projeto.id}Label" class="modal-title">#0${projeto.id} | ${projeto.nome}</h5>
@@ -138,7 +302,10 @@ window.onload = () => {
       modal += `
               </div>
               <div class="modal-footer">
-                <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ver repositório do projeto ${projeto.nome}" class="btn btn-info">Ver Repositório</a>
+                <a class="btn btn-info" title="Ver informações sobre o projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseSobre-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseSobre-${projeto.id}">Sobre</a>
+                <a class="btn btn-info" title="Ver informações sobre o andamento do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseSprints-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseSprints-${projeto.id}">Sprints</a>
+                <a class="btn btn-info" title="Ver informações sobre o repositório do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseRepo-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseRepo-${projeto.id}">Repositório</a>
+                <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ir para o repositório do projeto ${projeto.nome}" class="btn btn-info">Visitar Repositório</a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
               </div>
             </div>

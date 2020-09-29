@@ -4,7 +4,7 @@
 
 body {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
   padding: 0;
 }
@@ -38,6 +38,48 @@ body {
   position: absolute;
   top: 12px;
   right: 12px;
+}
+
+[id*="collapseSprints-"] ul {
+  position: relative;
+}
+
+[id*="collapseSprints-"] ul::before {
+  content: '';
+  border-left: 2px solid #e9ecef;
+  left: 5.3%;
+  top: 24px;
+  bottom: 24px;
+  position: absolute;
+}
+
+[id*="collapseSprints-"] ul li::before {
+  font-family: 'Font Awesome 5 Pro';
+  color: #e9ecef;
+  content: '\f192';
+  left: -5%;
+  top: 2px;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  height: 28px;
+  width: 28px
+}
+
+[id*="collapseSprints-"] ul li.doing::before {
+  color: #6c757d;
+}
+
+[id*="collapseSprints-"] ul li.done::before {
+  color: #17a2b8;
+  content: '\f058';
+}
+[id*="collapseSprints-"] li.final::before {
+  content: '\f024';
+}
+[id*="collapseSprints-"] li.done.final::before {
+  color: #ffc107;
 }
 
 @media only screen and (min-width: 577px) {
