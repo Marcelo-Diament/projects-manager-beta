@@ -98,11 +98,11 @@ window.onload = () => {
         <p class="mx-2 mb-3">${description}</p>
     `
     for (let projeto of projetos) {
-
-      let repoInfos = getRepo(projeto.repositorio)
+      let repoInfos
+      if (projeto.repositorio && projeto.repositorio !== undefined && projeto.repositorio !== '') repoInfos = getRepo(projeto.repositorio)
 
       let modalBody = `
-      <div class="mb-2 collapse" id="collapseSobre-${projeto.id}">
+      <div class="mb-2 collapse show" id="collapseSobre-${projeto.id}">
         <small><b>Projeto</b></small><br/>
         <small>${projeto.descricao}</small><br/>
         <small><b>Integrantes</b></small>
@@ -132,15 +132,21 @@ window.onload = () => {
       modalBody += `
         </ul>
       </div>
-      <div class="mb-2 collapse" id="collapseRepo-${projeto.id}">
-        <small><b>Repositório</b></small><br/>
-        <small>Id: ${repoInfos.id}</small><br/>
-        <small>Criado em ${new Date(repoInfos.created_at).toLocaleDateString()}</small><br/>
-        <small>Atualizado em ${new Date(repoInfos.updated_at).toLocaleDateString()}</small><br/>
-        <small>Nome do repositório: ${repoInfos.name}</small><br/>
-        <small>Links <a href="${repoInfos.html_url}" rel="noopener noreferrer" target="_blank" title="Repositório do projeto ${projeto.nome}">Repositório</a> | <a href="${projeto.repositorio}/blob/master/README.md" rel="noopener noreferrer" target="_blank" title="README do projeto ${projeto.nome}">README.md</a></small><br/>
-        <small>Descrição: ${repoInfos.description}</small><br/>
-      </div>
+      `;
+      if (repoInfos) {
+        modalBody += `
+          <div class="mb-2 collapse" id="collapseRepo-${projeto.id}">
+            <small><b>Repositório</b></small><br/>
+            <small>Id: ${repoInfos.id}</small><br/>
+            <small>Criado em ${new Date(repoInfos.created_at).toLocaleDateString()}</small><br/>
+            <small>Atualizado em ${new Date(repoInfos.updated_at).toLocaleDateString()}</small><br/>
+            <small>Nome do repositório: ${repoInfos.name}</small><br/>
+            <small>Links <a href="${repoInfos.html_url}" rel="noopener noreferrer" target="_blank" title="Repositório do projeto ${projeto.nome}">Repositório</a> | <a href="${projeto.repositorio}/blob/master/README.md" rel="noopener noreferrer" target="_blank" title="README do projeto ${projeto.nome}">README.md</a></small><br/>
+            <small>Descrição: ${repoInfos.description}</small><br/>
+          </div>
+        `;
+      }
+      modalBody += `
       <div class="mb-2 collapse" id="collapseSprints-${projeto.id}">
         <small><b>Sprints | 01. Front</b></small>
         <ul class="list-unstyled row">
@@ -302,7 +308,7 @@ window.onload = () => {
       modal += `
               </div>
               <div class="modal-footer">
-                <a class="btn btn-info" title="Ver informações sobre o projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseSobre-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseSobre-${projeto.id}">Sobre</a>
+                <a class="btn btn-info" title="Ver informações sobre o projeto ${projeto.nome}" data-toggle="collapse" href="#collapseSobre-${projeto.id}" role="button" aria-expanded="true" aria-controls="collapseSobre-${projeto.id}">Sobre</a>
                 <a class="btn btn-info" title="Ver informações sobre o andamento do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseSprints-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseSprints-${projeto.id}">Sprints</a>
                 <a class="btn btn-info" title="Ver informações sobre o repositório do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseRepo-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseRepo-${projeto.id}">Repositório</a>
                 <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ir para o repositório do projeto ${projeto.nome}" class="btn btn-info">Visitar Repositório</a>
