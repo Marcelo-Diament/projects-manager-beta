@@ -4,7 +4,7 @@
 
 const buildProjetoCard = projeto => `
   <div id="projectCardContainer-${projeto.id}" class="col-12 col-lg-6 col-xl-4 my-2 p-0 p-sm-2 p-lg-3">
-    <article style="border-left: 8px solid ${projeto.corProjeto};" class="bg-light rounded-lg mx-0 my-2 p-3 d-flex flex-column flex-nowrap justify-content-between h-100" id="projectCard-${projeto.id}">
+    <article style="border-left: 8px solid ${projeto.corProjeto};" class="bg-light rounded-lg mx-0 my-2 my-lg-0 p-3 d-flex flex-column flex-nowrap justify-content-between h-100" id="projectCard-${projeto.id}">
       <header class="mt-4 d-flex flex-column flex-nowrap">
         <div class="projeto-id"><span class="ml-auto px-2 py-1 badge badge-pill badge-dark">PROJETO #0${projeto.id}</span></div>
         <div class="d-flex flex-row flex-nowrap justify-content-between align-items-start">
