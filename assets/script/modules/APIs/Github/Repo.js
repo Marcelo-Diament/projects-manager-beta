@@ -1,4 +1,5 @@
 import Fetch from '../../Helpers/Fetch'
+import { debugMode } from '../../Helpers/Utils'
 
 /**
  * @function repoShow
@@ -7,7 +8,7 @@ import Fetch from '../../Helpers/Fetch'
  * @returns - returns HTML with requested repo data
  */
 const repoShow = async (repo) => {
-  console.log(await repo)
+  debugMode && console.log(await repo)
   return await repo
 }
 
@@ -22,8 +23,8 @@ const repoInfos = async (dataObj) => {
     ({ id, name, html_url, description, created_at, updated_at, homepage, stargazers_count, watchers_count, language }) => (
       { id, name, html_url, description, created_at, updated_at, homepage, stargazers_count, watchers_count, language }
     ))(dataObj);
-    repo.created_at = new Date(repo.created_at).toLocaleDateString()
-    repo.updated_at = new Date(repo.updated_at).toLocaleDateString()
+  repo.created_at = new Date(repo.created_at).toLocaleDateString()
+  repo.updated_at = new Date(repo.updated_at).toLocaleDateString()
   return await repoShow(repo)
 }
 
