@@ -17,12 +17,12 @@ const setRepo = repo => {
   return repo
 }
 
-async function fetchRepo(repoUrl) {
-  let url = await repoUrl.replace('github.com/', 'api.github.com/repos/')
-  let response = await fetch(`${url}`)
-  let repo = await response.json()
-  return await setRepo(repo)
-}
+// async function fetchRepo(repoUrl) {
+//   let url = await repoUrl.replace('github.com/', 'api.github.com/repos/')
+//   let response = await fetch(`${url}`)
+//   let repo = await response.json()
+//   return await setRepo(repo)
+// }
 
 const getRepo = (repoUrl, refresh = false) => {
   let repo = {}
