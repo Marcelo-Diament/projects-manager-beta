@@ -5,7 +5,7 @@
 const buildProjetoCard = projeto => `
   <div id="projectCardContainer-${projeto.id}" class="col-12 col-lg-6 col-xl-4 my-2 px-0 py-0 px-sm-2">
     <article style="border-left: 8px solid ${projeto.corProjeto};" class="bg-light rounded-lg mx-0 my-2 my-lg-0 p-3 d-flex flex-column flex-nowrap justify-content-between h-100" id="projectCard-${projeto.id}">
-      <header class="mt-4 d-flex flex-column flex-nowrap">
+      <header class="mt-3 d-flex flex-column flex-nowrap">
         <div class="projeto-id"><span class="ml-auto px-2 py-1 badge badge-pill badge-dark">PROJETO #0${projeto.id}</span></div>
         <div class="d-flex flex-row flex-nowrap justify-content-between align-items-start">
           <img src="./${projeto.logo}" height="80" width="80" class="my-2 rounded-circle border-info">
