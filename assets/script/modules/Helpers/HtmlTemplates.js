@@ -7,7 +7,7 @@ const buildProjetoCard = projeto => `
     <header class="my-3 d-flex flex-column flex-nowrap">
       <div class="projeto-id"><span class="ml-auto px-2 py-1 badge badge-pill badge-dark">PROJETO #0${projeto.id}</span></div>
       <div class="d-flex flex-row flex-nowrap justify-content-between align-items-start">
-        <img src="${projeto.logo}" height="96" width="96" class="my-2 circle border-info">
+        <img src="./${projeto.logo}" height="96" width="96" class="my-2 circle border-info">
         <div class="my-2 d-flex flex-column flex-nowrap col">
           <h4>${projeto.nome}</h4>
           <small>Tema: ${projeto.tema}</small>
@@ -17,8 +17,8 @@ const buildProjetoCard = projeto => `
       </div>
     </header>
     <div class="d-flex flex-column flex-nowrap">
-      <small>Criado em: ${new Date(projeto.createdAt).toLocaleDateString()} | Atualizado em: ${new Date(projeto.updatedAt).toLocaleDateString()}</small>
-      <button type="button" class="btn btn-info mt-3" data-toggle="modal" data-target="#modalProjeto${projeto.id}">Info</button>
+      <!-- <small>Criado em: ${new Date(projeto.createdAt).toLocaleDateString()} | Atualizado em: ${new Date(projeto.updatedAt).toLocaleDateString()}</small>-->
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalProjeto${projeto.id}">Info</button>
     </div>
   </article>
 `
@@ -33,10 +33,11 @@ const buildProjetos = (projetos, title, description) => {
     html += buildProjetoCard(projeto)
   }
   html += `</div>`;
+  return html
 }
 
-const HtmlTemplates = {
+const HTMLTemplates = {
   projetos: buildProjetos
 }
 
-export default HtmlTemplates
+export default HTMLTemplates
