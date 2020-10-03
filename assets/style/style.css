@@ -18,23 +18,11 @@ body {
   padding: 0;
 }
 
-#resultsContainer div {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: stretch;
-}
-
-#resultsContainer div h2,
-#resultsContainer div p {
-  flex: 1 0 100%;
-}
-
-#resultsContainer article {
+#resultsContainer [id*="projectCard-"] {
   position: relative;
 }
 
-#resultsContainer article .projeto-id {
+#resultsContainer [id*="projectCard-"] .projeto-id {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -82,14 +70,13 @@ body {
   color: #ffc107;
 }
 
-@media only screen and (min-width: 577px) {
-  #resultsContainer div article {
-    flex: 1 1 45%;
+/* @media only screen and (min-width: 576px) {
+  #resultsContainer [id*="projectCard-"] {
+    position: relative;
+    flex: 1 0 50%;
   }
-}
+} */
 
-@media only screen and (min-width: 1201px) {
-  #resultsContainer div article {
-    flex: 1 1 31.3%;
-  }
-}
+/* @media only screen and (min-width: 1200px) {
+  
+} */
