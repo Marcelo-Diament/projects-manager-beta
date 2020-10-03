@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <!-- header -->
   <header class="border-bottom border-info">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="./index.html">Projetos Integradores</a>
@@ -53,22 +54,28 @@
         </ul>
       </div>
     </nav>
-  </header>
+  </header><!-- /header -->
+
+  <!-- main#root -->
   <main id="root">
+
+    <!-- nav#navContainer -->
     <nav class="collapse bg-light py-3 px-2 border-bottom border-info" id="navContainer">
-      <form action="" class="col-12 px-0 d-flex flex-column flex-md-row flex-nowrap">
+
+      <!-- form#searchAndFilterForm -->
+      <form action="" class="col-12 px-0 d-flex flex-column flex-md-row flex-nowrap" id="searchAndFilterForm">
+
+        <!-- fieldset#formBusca -->
         <fieldset class="form-group col-md-5 pr-md-0 mb-md-0" id="formBusca">
           <div class="row">
             <legend class="col-form-label col-12 pt-0 font-weight-bold">Buscar por</legend>
             <div class="form-row col-12">
-
               <fieldset class="form-group col-sm-6 mb-md-0">
                 <legend class="col-form-label col-12 p-0">Projeto</legend>
                 <select class="custom-select my-1" name="projeto" id="projetoSelect">
                   <option value="" selected disabled required>Selecione um projeto</option>
                 </select>
               </fieldset>
-
               <fieldset class="form-group col-sm-6 mb-md-0">
                 <legend class="col-form-label col-12 p-0">Tema</legend>
                 <select class="custom-select my-1" name="tema" id="temaSelect">
@@ -77,8 +84,12 @@
               </fieldset>
             </div>
           </div>
-        </fieldset>
+
+        </fieldset><!-- /fieldset#formBusca -->
+
+        <!-- fieldset#formOrdenar -->
         <fieldset class="form-group col-md-6 mb-md-0 " id="formOrdenar">
+
           <div class="row">
             <legend class="col-form-label col-12 pt-0 font-weight-bold">Ordenar por</legend>
             <div class="form-row col-12">
@@ -101,19 +112,32 @@
               </fieldset>
             </div>
           </div>
-        </fieldset>
+
+        </fieldset><!-- /fieldset#formOrdenar -->
+
+        <!-- fieldset#formBtns -->
         <fieldset
           class="form-group col-md-1 pl-md-0 mb-md-0 d-flex flex-column justify-content-around align-items-stretch"
           id="formBtns">
+
           <button type="reset" class="btn btn-secondary col my-2" id="clearResultsBtn">Limpar</button>
           <button type="submit" class="btn btn-info col my-2" id="filterResultsProjetosBtn">Filtrar</button>
-        </fieldset>
 
-      </form>
-    </nav>
-    <section class="py-3 px-2" id="resultsContainer"></section>
-  </main>
-  <div id="modais"></div>
+        </fieldset><!-- /fieldset#formBtns -->
+
+      </form><!-- /form#searchAndFilterForm -->
+
+    </nav><!-- /nav#navContainer -->
+
+    <!-- section#resultsContainer -->
+    <section class="py-3 px-2" id="resultsContainer"></section><!-- /section#resultsContainer -->
+
+  </main><!-- /main#root -->
+
+  <!-- div#modais -->
+  <div id="modais"></div><!-- /div#modais -->
+
+  <!-- Bootstrap Scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
   </script>
@@ -122,8 +146,10 @@
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-  </script>
-  <script type="module" src="./assets/script/main.js"></script>
+  </script><!-- /Bootstrap Scripts -->
+
+  <!-- Custom Main Script -->
+  <script type="module" src="./assets/script/main.js"></script><!-- /Custom Main Script -->
 </body>
 
 </html>
