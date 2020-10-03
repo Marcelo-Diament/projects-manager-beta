@@ -1,6 +1,6 @@
 const debugMode = true
 
-let body = document.querySelector('body'),
+const body = document.querySelector('body'),
   searchContainer = document.querySelector('#searchContainer'),
   root = document.querySelector('#root'),
   searchAndFilterForm = document.querySelector('#searchAndFilterForm'),
@@ -8,7 +8,16 @@ let body = document.querySelector('body'),
   formOrdenar = document.querySelector('#formOrdenar'),
   formBtns = document.querySelector('#formBtns'),
   resultsContainer = document.querySelector('#resultsContainer'),
-  modais = document.querySelector('#modais')
+  modais = document.querySelector('#modais'),
+  projetoSelect = document.querySelector('#projetoSelect'),
+  temaSelect = document.querySelector('#temaSelect'),
+  orderPorSelect = document.querySelector('#orderPorSelect'),
+  ascInput = document.querySelector('#ascInput'),
+  descInput = document.querySelector('#descInput'),
+  filterResultsProjetosBtn = document.querySelector('#filterResultsProjetosBtn'),
+  resulstsContainer = document.querySelector('#resultsContainer'),
+  projetosLinksMenu = document.querySelector('#projetosLinksMenu'),
+  temasLinksMenu = document.querySelector('#temasLinksMenu')
 
 const mainVariables = {
   body,

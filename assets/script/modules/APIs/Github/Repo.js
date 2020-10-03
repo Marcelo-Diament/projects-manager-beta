@@ -8,9 +8,9 @@ import { debugMode, appendHTML } from '../../Helpers/Utils'
  * @returns - returns HTML with requested repo data
  */
 const repoShow = (async (repo) => {
-  debugMode && console.log(await repo)
+  // debugMode && console.log(await repo)
   let meuUmRepo = `<p>${repo.name}</p>`
-  console.log(meuUmRepo)
+  // console.log(meuUmRepo)
   appendHTML(meuUmRepo)
 })
 
