@@ -1,6 +1,6 @@
-import Fetch from '../Helpers/Fetch'
-import Aluno from '../Aluno/Aluno'
-import { debugMode } from '../Helpers/Utils'
+import Fetch from '../Helpers/Fetch.js'
+import Aluno from '../Aluno/Aluno.js'
+import { debugMode } from '../Helpers/Utils.js'
 
 const Projetos = () => Fetch(`./data/projetos.json`)
   .then(projetos => {

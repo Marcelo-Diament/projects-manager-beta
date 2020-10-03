@@ -1,5 +1,5 @@
-import Projetos from '../Projetos/Projetos'
-import { debugMode } from '../Helpers/Utils'
+import Projetos from '../Projetos/Projetos.js'
+import { debugMode } from '../Helpers/Utils.js'
 
 /**
  * @function Projeto

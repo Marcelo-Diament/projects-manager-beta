@@ -1,5 +1,5 @@
-import Fetch from '../Helpers/Fetch'
-// import { debugMode } from '../Helpers/Utils'
+import Fetch from '../Helpers/Fetch.js'
+// import { debugMode } from '../Helpers/Utils.js'
 
 const Alunos = Fetch(`./data/alunos.json`)
 

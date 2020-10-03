@@ -1,5 +1,5 @@
-import Fetch from '../../Helpers/Fetch'
-import { debugMode, appendHTML } from '../../Helpers/Utils'
+import Fetch from '../../Helpers/Fetch.js'
+import { debugMode, appendHTML } from '../../Helpers/Utils.js'
 
 /**
  * @function repoShow

@@ -1,9 +1,9 @@
-// import Repo from './modules/APIs/Github/Repo'
-// import Aluno from './modules/Aluno/Aluno'
-import Projetos from './modules/Projetos/Projetos'
-// import Projeto from './modules/Projeto/Projeto'
-import { appendHTML, mainVariables } from './modules/Helpers/Utils'
-import HTMLTemplates from './modules/Helpers/HTMLTemplates'
+// import Repo from './modules/APIs/Github/Repo.js'
+// import Aluno from './modules/Aluno/Aluno.js'
+import Projetos from './modules/Projetos/Projetos.js'
+// import Projeto from './modules/Projeto/Projeto.js'
+import { appendHTML, mainVariables } from './modules/Helpers/Utils.js'
+import HTMLTemplates from './modules/Helpers/HTMLTemplates.js'
 
 // Testing Repo refactored
 // Repo(`https://github.com/LuanCSV/pets-social-network-DH`)
