@@ -1,10 +1,9 @@
 import Repo from './modules/APIs/Github/Repo'
 import Aluno from './modules/Aluno/Aluno'
-
-const debugMode = true
+import { appendHTML } from './modules/Helpers/Utils'
 
 // Testing Repo refactored
-const meuRepo = Repo(`https://github.com/LuanCSV/pets-social-network-DH`)
+Repo(`https://github.com/LuanCSV/pets-social-network-DH`)
 
 // Testing Aluno
-const umAluno = Aluno(2)
+Aluno(2)

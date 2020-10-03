@@ -1,5 +1,5 @@
 import Fetch from '../../Helpers/Fetch'
-import { debugMode } from '../../Helpers/Utils'
+import { debugMode, appendHTML } from '../../Helpers/Utils'
 
 /**
  * @function repoShow
@@ -7,10 +7,12 @@ import { debugMode } from '../../Helpers/Utils'
  * @description - receives specific Github API repository response properties and returns it as HTML
  * @returns - returns HTML with requested repo data
  */
-const repoShow = async (repo) => {
+const repoShow = (async (repo) => {
   debugMode && console.log(await repo)
-  return await repo
-}
+  let meuUmRepo = `<p>${repo.name}</p>`
+  console.log(meuUmRepo)
+  appendHTML(meuUmRepo)
+})
 
 /**
  * @function repoInfos

@@ -1,12 +1,7 @@
 import Fetch from '../Helpers/Fetch'
-import { debugMode } from '../Helpers/Utils'
+import { debugMode, appendHTML } from '../Helpers/Utils'
 
 const Alunos = Fetch(`./data/alunos.json`)
-
-const showAluno = async (aluno) => {
-  debugMode && console.log(await aluno)
-  return await aluno
-}
 
 /**
  * @function Aluno
@@ -22,6 +17,13 @@ const Aluno = async id => {
     selectedAluno = undefined
   }
   return showAluno(selectedAluno)
+}
+
+const showAluno = async (aluno) => {
+  debugMode && console.log(await aluno)
+  let meuUmAluno = `<p>${aluno.nome}</p>`
+  console.log(meuUmAluno)
+  appendHTML(meuUmAluno)
 }
 
 export default Aluno
