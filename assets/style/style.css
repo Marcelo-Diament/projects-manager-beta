@@ -41,6 +41,13 @@ body {
   position: absolute;
 }
 
+#modalCronograma ul li.doing {
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 10px 0 18px;
+}
+
 #modalCronograma ul li::before {
   font-family: 'Font Awesome 5 Pro';
   color: #e9ecef;
@@ -63,9 +70,11 @@ body {
   color: #17a2b8;
   content: '\f058';
 }
+
 #modalCronograma li.final::before {
   content: '\f024';
 }
+
 #modalCronograma li.done.final::before {
   color: #ffc107;
 }
@@ -80,3 +89,19 @@ body {
 /* @media only screen and (min-width: 1200px) {
   
 } */
+
+.modal-body::-webkit-scrollbar {
+  width: 24px;
+  height: 24px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #17a2b8;
+  border: 8px solid #fff;
+  border-radius: 24px;
+  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .15), inset -2px -2px 2px rgba(0, 0, 0, .15);
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
