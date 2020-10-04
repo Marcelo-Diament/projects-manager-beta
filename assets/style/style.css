@@ -28,11 +28,11 @@ body {
   right: 12px;
 }
 
-[id*="collapseSprints-"] ul {
+#modalCronograma ul {
   position: relative;
 }
 
-[id*="collapseSprints-"] ul::before {
+#modalCronograma ul::before {
   content: '';
   border-left: 2px solid #e9ecef;
   left: 5.3%;
@@ -41,7 +41,7 @@ body {
   position: absolute;
 }
 
-[id*="collapseSprints-"] ul li::before {
+#modalCronograma ul li::before {
   font-family: 'Font Awesome 5 Pro';
   color: #e9ecef;
   content: '\f192';
@@ -55,18 +55,18 @@ body {
   width: 28px
 }
 
-[id*="collapseSprints-"] ul li.doing::before {
+#modalCronograma ul li.doing::before {
   color: #6c757d;
 }
 
-[id*="collapseSprints-"] ul li.done::before {
+#modalCronograma ul li.done::before {
   color: #17a2b8;
   content: '\f058';
 }
-[id*="collapseSprints-"] li.final::before {
+#modalCronograma li.final::before {
   content: '\f024';
 }
-[id*="collapseSprints-"] li.done.final::before {
+#modalCronograma li.done.final::before {
   color: #ffc107;
 }
 

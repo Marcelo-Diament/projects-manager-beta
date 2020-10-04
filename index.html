@@ -23,34 +23,34 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <!-- <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#">Regras</a>
+          </li> -->
+          <li class="nav-item active">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCronograma">Cronograma  <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCronograma">Cronograma</a>
-          </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="projetosDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Projetos
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="projetosDropdown" id="projetosLinksMenu">
             </div>
-          </li>
-          <li class="nav-item dropdown">
+          </li> -->
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="temasDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Temas
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="temasDropdown" id="temasLinksMenu"></div>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <a class="nav-link" type="button" data-toggle="collapse" data-target="#navContainer" aria-expanded="false"
               aria-controls="navContainer"><i class="far fa-search"></i></a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>
@@ -58,15 +58,15 @@
 
   <!-- main#root -->
   <main id="root">
-
+    <!-- SEARCH DISABLED FOR NOW -->
     <!-- nav#navContainer -->
-    <nav class="collapse bg-light py-3 px-2 border-bottom border-info" id="navContainer">
+    <!-- <nav class="collapse bg-light py-3 px-2 border-bottom border-info" id="navContainer"> -->
 
       <!-- form#searchAndFilterForm -->
-      <form action="" class="col-12 px-0 d-flex flex-column flex-md-row flex-nowrap" id="searchAndFilterForm">
+      <!-- <form action="" class="col-12 px-0 d-flex flex-column flex-md-row flex-nowrap" id="searchAndFilterForm"> -->
 
         <!-- fieldset#formBusca -->
-        <fieldset class="form-group col-md-5 pr-md-0 mb-md-0" id="formBusca">
+        <!-- <fieldset class="form-group col-md-5 pr-md-0 mb-md-0" id="formBusca">
           <div class="row">
             <legend class="col-form-label col-12 pt-0 font-weight-bold">Buscar por</legend>
             <div class="form-row col-12">
@@ -85,10 +85,11 @@
             </div>
           </div>
 
-        </fieldset><!-- /fieldset#formBusca -->
+        </fieldset> -->
+        <!-- /fieldset#formBusca -->
 
         <!-- fieldset#formOrdenar -->
-        <fieldset class="form-group col-md-6 mb-md-0 " id="formOrdenar">
+        <!-- <fieldset class="form-group col-md-6 mb-md-0 " id="formOrdenar">
 
           <div class="row">
             <legend class="col-form-label col-12 pt-0 font-weight-bold">Ordenar por</legend>
@@ -113,21 +114,26 @@
             </div>
           </div>
 
-        </fieldset><!-- /fieldset#formOrdenar -->
+        </fieldset> -->
+        <!-- /fieldset#formOrdenar -->
 
         <!-- fieldset#formBtns -->
-        <fieldset
+        <!-- <fieldset
           class="form-group col-md-1 pl-md-0 mb-md-0 d-flex flex-column justify-content-around align-items-stretch"
           id="formBtns">
 
           <button type="reset" class="btn btn-secondary col my-2" id="clearResultsBtn">Limpar</button>
           <button type="submit" class="btn btn-info col my-2" id="filterResultsProjetosBtn">Filtrar</button>
 
-        </fieldset><!-- /fieldset#formBtns -->
+        </fieldset> -->
+        <!-- /fieldset#formBtns -->
 
-      </form><!-- /form#searchAndFilterForm -->
+      <!-- </form> -->
+      <!-- /form#searchAndFilterForm -->
 
-    </nav><!-- /nav#navContainer -->
+    <!-- </nav> -->
+    <!-- /nav#navContainer -->
+    <!-- SEARCH DISABLED FOR NOW -->
 
     <!-- section#resultsContainer -->
     <section class="container py-3 px-2 px-md-0" id="resultsContainer"></section><!-- /section#resultsContainer -->
@@ -140,7 +146,7 @@
   <!-- div#modalCronograma -->
   <div class="modal fade" id="modalCronograma" tabindex="-1" aria-labelledby="modalCronogramaLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-xl modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 id="modalCronogramaLabel" class="modal-title">Cronograma</h5>
@@ -149,10 +155,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <div class="mb-2">
-            <small><b>Sprints | 01. Front</b></small>
-            <ul class="list-unstyled row">
-              <li class="my-3 col-10 offset-1 done">
+          <div class="my-3">
+            <h5 class="px-5 mt-5 mb-4 text-info">Sprints | 01. Front</h5>
+            <ul class="list-unstyled my-3">
+              <li class="my-4 col-10 offset-1 px-5 done" data-prazo="10/01/20">
                 <small><b>01.01. Planejamento Inicial <span class="float-right">01/10/20</span></b></small><br />
                 <small><b>Entrega: link do repositório com todos os colaboradores definidos, link do
                     Trello.</b></small><br />
@@ -164,7 +170,7 @@
                     style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1 doing">
+              <li class="my-4 col-10 offset-1 px-5 doing">
                 <small><b>01.02. Arquitetura de Informações e UX <span
                       class="float-right">08/10/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
@@ -177,7 +183,7 @@
                     style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1">
+              <li class="my-4 col-10 offset-1 px-5" data-prazo="10/15/20">
                 <small><b>01.03. Front | Usuário Deslogado <span class="float-right">15/10/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
                 <small class="text-black-50"><i>Layouts (HTML, CSS e JS - com ou sem Bootstrap) da Home, página
@@ -189,7 +195,7 @@
                     style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1">
+              <li class="my-4 col-10 offset-1 px-5" data-prazo="10/22/20">
                 <small><b>01.04. Front | Administrador <span class="float-right">22/10/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
                 <small class="text-black-50"><i>Layouts (HTML, CSS e JS - com ou sem Bootstrap) das páginas
@@ -203,7 +209,7 @@
                     style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1">
+              <li class="my-4 col-10 offset-1 px-5">
                 <small><b>01.05. Front | Usuário Logado e Revisão <span
                       class="float-right">29/10/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
@@ -217,7 +223,7 @@
                     style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1">
+              <li class="my-4 col-10 offset-1 px-5">
                 <small><b>01.06. Front | React.js - Componentização e Rotas <span
                       class="float-right">05/11/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
@@ -230,17 +236,15 @@
                 </div>
               </li>
             </ul>
-            <br />
-            <ul class="list-unstyled row">
-              <li class="my-3 col-10 offset-1">
+            <ul class="list-unstyled my-3">
+              <li class="my-4 col-10 offset-1 px-5">
                 <small><b>Apresentação 01 (opcional) | Front End v1 <span
                       class="float-right">11/11/20</span></b></small><br />
               </li>
             </ul>
-            <br />
-            <small><b>Sprints | 02. Dados</b></small>
-            <ul class="list-unstyled row">
-              <li class="my-3 col-10 offset-1">
+            <h5 class="px-5 mt-5 mb-4 text-info">Sprints | 02. Dados</h5>
+            <ul class="list-unstyled my-3">
+              <li class="my-4 col-10 offset-1 px-5" data-prazo="11/12/20">
                 <small><b>02.01. Dados | Estrutura do Banco <span class="float-right">12/11/20</span></b></small><br />
                 <small><b>Entrega: mapeamento dos dados (e possível protótipo).</b></small><br />
                 <small class="text-black-50"><i>Definição da estrutura do banco de dados - quais tabelas serão criadas,
@@ -253,7 +257,7 @@
                     style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1">
+              <li class="my-4 col-10 offset-1 px-5" data-prazo="11/19/20">
                 <small><b>02.02. Dados | Migration <span class="float-right">19/11/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
                 <small class="text-black-50"><i>Criação das migrations - que são como scripts que criam as tabelas e
@@ -263,7 +267,7 @@
                     style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1">
+              <li class="my-4 col-10 offset-1 px-5" data-prazo="11/26/20">
                 <small><b>02.03. Dados | Seeds + Read (CRUD) <span class="float-right">26/11/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
                 <small class="text-black-50"><i>Criação dos seeds (que populam o banco para nós) e consumo dos dados do
@@ -275,17 +279,15 @@
                 </div>
               </li>
             </ul>
-            <br />
-            <ul class="list-unstyled row">
-              <li class="my-3 col-10 offset-1">
+            <ul class="list-unstyled my-3">
+              <li class="my-4 col-10 offset-1 px-5">
                 <small><b>Apresentação 02 (opcional) | Front End v2 <span
                       class="float-right">11/11/20</span></b></small></b></small><br />
               </li>
             </ul>
-            <br />
-            <small><b>Sprints | 03. Back</b></small>
-            <ul class="list-unstyled row">
-              <li class="my-3 col-10 offset-1">
+            <h5 class="px-5 mt-5 mb-4 text-info">Sprints | 03. Back</h5>
+            <ul class="list-unstyled my-3">
+              <li class="my-4 col-10 offset-1 px-5" data-prazo="12/03/20">
                 <small><b>03.01. Back | Create (CRUD) <span class="float-right">03/12/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
                 <small class="text-black-50"><i>Definição das operações de Criação (cadastro de usuário, produto,
@@ -296,7 +298,7 @@
                     style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1">
+              <li class="my-4 col-10 offset-1 px-5">
                 <small><b>03.02. Back | Update e Delete (CRUD) <span
                       class="float-right">10/12/20</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
@@ -308,9 +310,9 @@
                 </div>
               </li>
             </ul>
-            <small><b>Sprints | 04. Revisão Final</b></small>
-            <ul class="list-unstyled row">
-              <li class="my-3 col-10 offset-1">
+            <h5 class="px-5 mt-5 mb-4 text-info">Sprints | 04. Revisão Final</h5>
+            <ul class="list-unstyled my-3">
+              <li class="my-4 col-10 offset-1 px-5" data-prazo="01/12/21">
                 <small><b>04.01. Revisão | Extras <span class="float-right">12/01/21</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
                 <small class="text-black-50"><i>Implantação de features extras, otimizar código (como SEO e microdados)
@@ -321,7 +323,7 @@
                     style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                 </div>
               </li>
-              <li class="my-3 col-10 offset-1">
+              <li class="my-4 col-10 offset-1 px-5" data-prazo="01/19/21">
                 <small><b>04.02. Revisão | Refatoração <span class="float-right">19/01/21</span></b></small><br />
                 <small><b>Entrega: link do Pull Request final.</b></small><br />
                 <small class="text-black-50"><i>Revisão do projeto, otimização do código, da arquitetura, de performance
@@ -333,20 +335,20 @@
                 </div>
               </li>
             </ul>
-            <br />
-            <ul class="list-unstyled row">
-              <li class="my-3 col-10 offset-1">
+            <h5 class="px-5 mt-5 mb-4 text-info">Pré Apresentação</h5>
+            <ul class="list-unstyled my-3">
+              <li class="my-4 col-10 offset-1 px-5">
                 <small><b>Apresentação 03 | Back End <span
                       class="float-right">21/01/21</span></b></small></b></small><br />
               </li>
             </ul>
-            <ul class="list-unstyled row">
-              <li class="my-3 col-10 offset-1 final">
+            <h5 class="px-5 mt-5 mb-4 text-info">Apresentação</h5>
+            <ul class="list-unstyled my-3">
+              <li class="my-4 col-10 offset-1 px-5 final">
                 <small><b>Apresentação Final | Front End v2 <span
                       class="float-right">26/01/21</span></b></small></b></small><br />
               </li>
             </ul>
-            <br />
           </div>
         </div>
         <div class="modal-footer">
