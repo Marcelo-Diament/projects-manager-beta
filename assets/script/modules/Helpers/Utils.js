@@ -17,23 +17,46 @@ const body = document.querySelector('body'),
   filterResultsProjetosBtn = document.querySelector('#filterResultsProjetosBtn'),
   resulstsContainer = document.querySelector('#resultsContainer'),
   projetosLinksMenu = document.querySelector('#projetosLinksMenu'),
-  temasLinksMenu = document.querySelector('#temasLinksMenu')
+  temasLinksMenu = document.querySelector('#temasLinksMenu'),
+  prazoProjeto = '01/26/2021'
 
 const mainVariables = {
   body,
-  root,
   searchContainer,
+  root,
   searchAndFilterForm,
   formBusca,
   formOrdenar,
   formBtns,
   resultsContainer,
-  modais
+  modais,
+  projetoSelect,
+  temaSelect,
+  orderPorSelect,
+  ascInput,
+  descInput,
+  filterResultsProjetosBtn,
+  resulstsContainer,
+  projetosLinksMenu,
+  temasLinksMenu,
+  prazoProjeto
 }
 
 const appendHTML = async (html, container = body, refresh = false) => {
-  let response = refresh === true ? container.innerHTML = html : response = container.innerHTML += html
-  return await response
+  let result
+  if (refresh === true) {
+    container.innerHTML = await html
+  } else {
+    result = container.innerHTML += await html
+  }
+  return result
 }
 
-export { debugMode, mainVariables, appendHTML }
+const dateDiff = date => {
+  let prazo = new Date(date).getTime()
+  let hj = new Date().getTime()
+  let diferenca = Math.ceil((prazo - hj) / 86400000)
+  return diferenca
+}
+
+export { debugMode, mainVariables, appendHTML, dateDiff }
