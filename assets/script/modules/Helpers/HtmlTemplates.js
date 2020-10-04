@@ -1,6 +1,6 @@
 const integranteHTML = (integrante) => {
   let result = `
-  <li class="ml-0 col-6">
+  <li class="col-12 col-md-6 col-lg-auto ml-0 mx-lg-auto">
     <small>
       ${integrante.nome} ${integrante.sobrenome}
   `;
