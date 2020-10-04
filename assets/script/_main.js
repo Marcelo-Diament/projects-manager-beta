@@ -101,38 +101,38 @@ window.onload = () => {
       let repoInfos
       if (projeto.repositorio && projeto.repositorio !== undefined && projeto.repositorio !== '') repoInfos = getRepo(projeto.repositorio)
 
-      let modalBody = `
-      <div class="mb-2 collapse show" id="collapseSobre-${projeto.id}">
-        <small><b>Projeto</b></small><br/>
-        <small>${projeto.descricao}</small><br/>
-        <small><b>Integrantes</b></small>
-        <ul class="list-unstyled row">
-      `;
-      for (let integrante of projeto.integrantes) {
-        modalBody += `
-          <li class="ml-0 col-6">
-            <small>
-              ${integrante.nome} ${integrante.sobrenome}
-        `;
-        if (integrante.github && integrante.github !== '' && integrante.github !== undefined) {
-          modalBody += `
-                <a href="${integrante.github}" target="_blank" rel="noopener noreferrer" title="Acessar Github de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-github"></i></a>
-          `;
-        }
-        if (integrante.linkedin && integrante.linkedin !== '' && integrante.linkedin !== undefined) {
-          modalBody += `
-                <a href="${integrante.linkedin}" target="_blank" rel="noopener noreferrer" title="Acessar Linked In de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-linkedin"></i></a>
-          `;
-        }
-        modalBody += `
-            </small>
-          </li>
-        `;
-      }
-      modalBody += `
-        </ul>
-      </div>
-      `;
+      // let modalBody = `
+      // <div class="mb-2 collapse show" id="collapseSobre-${projeto.id}">
+      //   <small><b>Projeto</b></small><br/>
+      //   <small>${projeto.descricao}</small><br/>
+      //   <small><b>Integrantes</b></small>
+      //   <ul class="list-unstyled row">
+      // `;
+      // for (let integrante of projeto.integrantes) {
+      //   modalBody += `
+      //     <li class="ml-0 col-6">
+      //       <small>
+      //         ${integrante.nome} ${integrante.sobrenome}
+      //   `;
+      //   if (integrante.github && integrante.github !== '' && integrante.github !== undefined) {
+      //     modalBody += `
+      //           <a href="${integrante.github}" target="_blank" rel="noopener noreferrer" title="Acessar Github de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-github"></i></a>
+      //     `;
+      //   }
+      //   if (integrante.linkedin && integrante.linkedin !== '' && integrante.linkedin !== undefined) {
+      //     modalBody += `
+      //           <a href="${integrante.linkedin}" target="_blank" rel="noopener noreferrer" title="Acessar Linked In de ${integrante.nome} ${integrante.sobrenome}"><i class="fab fa-linkedin"></i></a>
+      //     `;
+      //   }
+      //   modalBody += `
+      //       </small>
+      //     </li>
+      //   `;
+      // }
+      // modalBody += `
+      //   </ul>
+      // </div>
+      // `;
       if (repoInfos) {
         modalBody += `
           <div class="mb-2 collapse" id="collapseRepo-${projeto.id}">
@@ -292,32 +292,32 @@ window.onload = () => {
         <br/>
       </div>
       `;
-      let modal = `
-        <div class="modal fade" id="modalProjeto${projeto.id}" tabindex="-1" aria-labelledby="modalProjeto${projeto.id}Label" aria-hidden="true">
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 id="modalProjeto${projeto.id}Label" class="modal-title">#0${projeto.id} | ${projeto.nome}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-      `;
-      modal += `${modalBody}`;
-      modal += `
-              </div>
-              <div class="modal-footer">
-                <a class="btn btn-info" title="Ver informações sobre o projeto ${projeto.nome}" data-toggle="collapse" href="#collapseSobre-${projeto.id}" role="button" aria-expanded="true" aria-controls="collapseSobre-${projeto.id}">Sobre</a>
-                <a class="btn btn-info" title="Ver informações sobre o andamento do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseSprints-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseSprints-${projeto.id}">Sprints</a>
-                <a class="btn btn-info" title="Ver informações sobre o repositório do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseRepo-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseRepo-${projeto.id}">Repositório</a>
-                <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ir para o repositório do projeto ${projeto.nome}" class="btn btn-info">Visitar Repositório</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
+      // let modal = `
+      //   <div class="modal fade" id="modalProjeto${projeto.id}" tabindex="-1" aria-labelledby="modalProjeto${projeto.id}Label" aria-hidden="true">
+      //     <div class="modal-dialog modal-xl">
+      //       <div class="modal-content">
+      //         <div class="modal-header">
+      //           <h5 id="modalProjeto${projeto.id}Label" class="modal-title">#0${projeto.id} | ${projeto.nome}</h5>
+      //           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      //             <span aria-hidden="true">&times;</span>
+      //           </button>
+      //         </div>
+      //         <div class="modal-body">
+      // `;
+      // modal += `${modalBody}`;
+      // modal += `
+      //         </div>
+      //         <div class="modal-footer">
+      //           <a class="btn btn-info" title="Ver informações sobre o projeto ${projeto.nome}" data-toggle="collapse" href="#collapseSobre-${projeto.id}" role="button" aria-expanded="true" aria-controls="collapseSobre-${projeto.id}">Sobre</a>
+      //           <a class="btn btn-info" title="Ver informações sobre o andamento do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseSprints-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseSprints-${projeto.id}">Sprints</a>
+      //           <a class="btn btn-info" title="Ver informações sobre o repositório do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseRepo-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseRepo-${projeto.id}">Repositório</a>
+      //           <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ir para o repositório do projeto ${projeto.nome}" class="btn btn-info">Visitar Repositório</a>
+      //           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // `;
       document.querySelector('#modais').innerHTML += modal
 
       html += `

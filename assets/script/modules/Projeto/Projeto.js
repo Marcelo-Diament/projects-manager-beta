@@ -9,7 +9,6 @@ import { debugMode } from '../Helpers/Utils.js'
 const Projeto = async id => {
   let projetos = await Projetos()
   if (id < projetos.length) {
-    // debugMode && console.log(projetos[id])
     return await projetos[id]
   } else {
     debugMode && console.log(`Não encontramos nenhum projeto com id ${id}`)

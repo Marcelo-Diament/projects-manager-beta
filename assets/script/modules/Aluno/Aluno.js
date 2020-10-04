@@ -1,5 +1,4 @@
 import Fetch from '../Helpers/Fetch.js'
-// import { debugMode } from '../Helpers/Utils.js'
 
 const Alunos = Fetch(`./data/alunos.json`)
 
@@ -13,19 +12,11 @@ const Aluno = async id => {
   let alunos = await Alunos
   if (id < alunos.length) {
     selectedAluno = alunos[id]
-    return buildAluno(selectedAluno)
+    return aluno
   } else {
     selectedAluno = undefined
     return `Não encontramos nenhum aluno com id ${id}`
   }
-}
-
-const buildAluno = async (aluno) => {
-  // debugMode && console.log(await aluno)
-  // let meuUmAluno = `<p>${aluno.nome}</p>`
-  // console.log(meuUmAluno)
-  // appendHTML(meuUmAluno)
-  return await aluno
 }
 
 export default Aluno

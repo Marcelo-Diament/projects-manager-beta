@@ -1,5 +1,5 @@
 import Fetch from '../../Helpers/Fetch.js'
-import { debugMode, appendHTML } from '../../Helpers/Utils.js'
+import { appendHTML } from '../../Helpers/Utils.js'
 
 /**
  * @function repoShow
@@ -7,10 +7,8 @@ import { debugMode, appendHTML } from '../../Helpers/Utils.js'
  * @description - receives specific Github API repository response properties and returns it as HTML
  * @returns - returns HTML with requested repo data
  */
-const repoShow = (async (repo) => {
-  // debugMode && console.log(await repo)
+const repoShow = (async repo => {
   let meuUmRepo = `<p>${repo.name}</p>`
-  // console.log(meuUmRepo)
   appendHTML(meuUmRepo)
 })
 
@@ -20,7 +18,7 @@ const repoShow = (async (repo) => {
  * @description - clears the data received from the Github API Repository endpoint maintaing just the selected repo properties
  * @returns - specific data (declared in the function body)
  */
-const repoInfos = async (dataObj) => {
+const repoInfos = async dataObj => {
   const repo = (
     ({ id, name, html_url, description, created_at, updated_at, homepage, stargazers_count, watchers_count, language }) => (
       { id, name, html_url, description, created_at, updated_at, homepage, stargazers_count, watchers_count, language }

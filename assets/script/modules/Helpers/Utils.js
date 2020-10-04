@@ -32,8 +32,7 @@ const mainVariables = {
 }
 
 const appendHTML = async (html, container = body, refresh = false) => {
-  let response
-  response = refresh === true ? container.innerHTML = html : response = container.innerHTML += html
+  let response = refresh === true ? container.innerHTML = html : response = container.innerHTML += html
   return await response
 }
 
