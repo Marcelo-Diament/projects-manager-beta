@@ -64,8 +64,6 @@ const buildProjectModal = projeto => {
           </div>
           <div class="modal-footer">
             <a class="btn btn-info" title="Ver informações sobre o projeto ${projeto.nome}" data-toggle="collapse" href="#collapseSobre-${projeto.id}" role="button" aria-expanded="true" aria-controls="collapseSobre-${projeto.id}">Sobre</a>
-            <a class="btn btn-info" title="Ver informações sobre o andamento do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseSprints-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseSprints-${projeto.id}">Sprints</a>
-            <a class="btn btn-info" title="Ver informações sobre o repositório do projeto ${projeto.nome}"  data-toggle="collapse" href="#collapseRepo-${projeto.id}" role="button" aria-expanded="false" aria-controls="collapseRepo-${projeto.id}">Repositório</a>
             <a href="${projeto.repositorio}" target="_blank" rel="noopener noreferrer" title="Ir para o repositório do projeto ${projeto.nome}" class="btn btn-info">Visitar Repositório</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
           </div>
